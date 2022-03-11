@@ -7,6 +7,21 @@ function tratarError(error) {
 }
 
 
+async function pegarArquivos(path){
+  const encoding = 'utf-8';
+  
+  try {
+    const texto = await fs.promises.readFile(path,encoding);
+    console.log(chalk.green(texto));
+  } catch (error) {
+    tratarError(error)
+  }
+  
+}
+
+pegarArquivos('./arquivos/texto1.md');
+
+/* 
 function pegarArquivos(path){
   const encoding = 'utf-8';
   fs.promises.readFile(path,encoding)
@@ -19,6 +34,8 @@ function pegarArquivos(path){
 }
 
 pegarArquivos('./arquivos/texto1.md');
+ */
+
 /* 
 function pegaArquivos(path) {
   const encoding = 'utf-8'
