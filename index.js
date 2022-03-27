@@ -16,7 +16,8 @@ function extraiLinks(texto){
   while((temp = regex.exec(texto)) !== null){
     arrayResultados.push({[temp[1]]: temp[2]})
   }
-  return arrayResultados
+  return arrayResultados;
+
   //console.log(chalk.green(arrayResultados));
 }
 
@@ -38,8 +39,8 @@ async function pegarArquivos(path){
   }
   
 }
-
-pegarArquivos('./arquivos/texto1.md');
+module.exports = pegarArquivos;
+//pegarArquivos('./arquivos/texto1.md');
 
 /* [
   {
