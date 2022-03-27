@@ -16,9 +16,9 @@ function extraiLinks(texto){
   while((temp = regex.exec(texto)) !== null){
     arrayResultados.push({[temp[1]]: temp[2]})
   }
-  return arrayResultados;
+  return arrayResultados.length === 0 ? 'não há links': arrayResultados;
 
-  //console.log(chalk.green(arrayResultados));
+  
 }
 
 
@@ -33,59 +33,15 @@ async function pegarArquivos(path){
   
   try {
     const texto = await fs.promises.readFile(path,encoding);
-    console.log(extraiLinks(texto));
+    return extraiLinks(texto);
   } catch (error) {
     tratarError(error)
   }
   
 }
 module.exports = pegarArquivos;
-//pegarArquivos('./arquivos/texto1.md');
-
-/* [
-  {
-    [nomeDoLink]: (url)
-  
-  }
-]
- */
 
 
 
 
 
-
-
-
-
-
-/* 
-function pegarArquivos(path){
-  const encoding = 'utf-8';
-  fs.promises.readFile(path,encoding)
-  .then((text)=>{ 
-    console.log(chalk.green(text))
-  })
-  .catch((error)=>{
-    tratarError(error)
-  })
-}
-
-pegarArquivos('./arquivos/texto1.md');
- */
-
-/* 
-function pegaArquivos(path) {
-  const encoding = 'utf-8'
-
-  // _ FAZ IGNORAR PARAMETRO DA FUNÇÃO
-  fs.readFile(path, encoding, (error, data) => {
-    if (error) {
-      tratarError(error)
-    }
-    console.log(chalk.green(data));
-  })
-
-}
-
-pegaArquivos('./arquivos/texto1.md'); */
