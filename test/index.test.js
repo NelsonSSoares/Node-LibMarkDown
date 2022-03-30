@@ -19,7 +19,7 @@ describe('pegaArquivo::',()=>{
   }) 
   it('Deve retornar mensagem: "Não Há Links"', async ()=>{
     const result = await pegaArquivo('C:\Users\estre\Desktop\Projetos e Aulas\Alura\nodeJS\mdLib\test\files\texto.md')
-    expect(result).toBe('não há links');
+    expect(result).rejects.toThrow('não há links');
   })
 })
 
