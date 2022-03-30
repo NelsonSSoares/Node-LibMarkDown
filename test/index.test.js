@@ -14,10 +14,13 @@ describe('pegaArquivo::',()=>{
 
 
   it('Deve retornar Array com resultados', async () =>{
-    const result = await pegaArquivo('.\test\files\texto1.md')
+    const result = await pegaArquivo('C:\Users\estre\Desktop\Projetos e Aulas\Alura\nodeJS\mdLib\test\files\texto1.md')
     expect(result).toEqual(arrayResult)
   }) 
-  
+  it('Deve retornar mensagem: "Não Há Links"', async ()=>{
+    const result = await pegaArquivo('C:\Users\estre\Desktop\Projetos e Aulas\Alura\nodeJS\mdLib\test\files\texto.md')
+    expect(result).toBe('não há links');
+  })
 })
 
 
